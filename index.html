@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Proposal</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will you be my gf?</h1>
+
+    <button onclick="displayMessage('yes')">Yes</button>
+    <button onclick="moveButton()">No</button>
+
+    <p id="message" style="display: none; margin-top: 20px; font-size: 18px;"></p>
+
+    <script>
+        var noButtonClicks = 0;
+
+        function displayMessage(choice) {
+            var messageElement = document.getElementById('message');
+            var noButton = document.getElementsByTagName('button')[1]; // Select the second button (No button)
+
+            if (choice === 'yes') {
+                messageElement.innerHTML = "I promise to you that I will stay and I will always be there for you. I love you!";
+            } else if (choice === 'no') {
+                messageElement.innerHTML = "That's okay! I appreciate your honesty.";
+                moveButton();
+            }
+
+            messageElement.style.display = 'block';
+        }
+
+        function moveButton() {
+            var noButton = document.getElementsByTagName('button')[1]; // Select the second button (No button)
+            noButton.style.marginTop = (50 + noButtonClicks * 10) + 'px'; // Adjust the margin-top property
+            noButtonClicks++;
+        }
+    </script>
+
+</body>
+</html>
